@@ -3,6 +3,9 @@ __pycache__/
 *.py[codz]
 *$py.class
 .env
+.airflow_venv/
+services/airflow/logs/
+services/airflow/*.db
 # C extensions
 *.so
 
