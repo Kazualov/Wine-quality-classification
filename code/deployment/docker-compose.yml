@@ -1,0 +1,20 @@
+services:
+  api:
+    build:
+      context: ../..
+      dockerfile: code/deployment/api/Dockerfile
+    container_name: wine-api
+    ports:
+      - "8000:8000"
+
+  app:
+    build:
+      context: ../..
+      dockerfile: code/deployment/app/Dockerfile
+    container_name: wine-app
+    ports:
+      - "8501:8501"
+    environment:
+      API_URL: http://api:8000/predict
+    depends_on:
+      - api
